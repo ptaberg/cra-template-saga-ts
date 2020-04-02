@@ -1,15 +1,12 @@
-import { 
-    INCREMENT, 
-    DECREMENT
-} from './actions';
-
+import {INCREMENT, DECREMENT} from './actions';
 import {SystemState, IAction} from './types';
 
-const initialState: SystemState = {
-    value: 3
-};
-
-const counterReducer = (state: SystemState = initialState, action: IAction) => {
+const counterReducer = (
+    state: SystemState = {
+        value: 3
+    }, 
+    action: IAction
+) => {
     switch (action.type) {
         case INCREMENT:
             return {

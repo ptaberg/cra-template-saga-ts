@@ -1,1 +1,0 @@
-export const counterValueSelect = (state: any): number => state.counter.value;
