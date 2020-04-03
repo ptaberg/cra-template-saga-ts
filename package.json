@@ -5,11 +5,10 @@
     "react",
     "create-react-app",
     "template",
-    "typescript",
     "redux",
-    "saga",
     "redux-saga",
-    "react-redux",
+    "saga",
+    "typescript"
   ],
   "description": "React Redux Saga App Temaplte from Create React App.",
   "main": "template.json",
