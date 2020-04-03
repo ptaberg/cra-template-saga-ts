@@ -1,11 +1,11 @@
-import {INCREMENT, DECREMENT} from './actions';
+import {INCREMENT, DECREMENT, ADD_AMOUNT} from './actions';
 import {SystemState, IAction} from './types';
 
 const counterReducer = (
     state: SystemState = {
         value: 3
     }, 
-    action: IAction
+    action: any
 ) => {
     switch (action.type) {
         case INCREMENT:
@@ -18,6 +18,12 @@ const counterReducer = (
                 ...state,
                 value: state.value - 1
             };
+        case ADD_AMOUNT: {
+            return {
+                ...state,
+                value: state.value + action.count
+            }
+        }
         default:
             return state;
     }
