@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {INCREMENT, DECREMENT, INCREMENT_ASYNC, ADD_AMOUNT_ASYNC, ADD_AMOUNT, addAmount} from './actions';
+import {
+    INCREMENT,
+    INCREMENT_ASYNC, 
+    DECREMENT, 
+    ADD_AMOUNT_ASYNC, 
+    addAmount} from './actions';
 import {selectValue} from './selectors'
 import styles from './Counter.module.css';
-import { type } from 'os';
 
 export const Counter = () => {
     const dispatch = useDispatch();
@@ -38,18 +42,26 @@ export const Counter = () => {
         />
         <button
           className={styles.button}
-          onClick={() => dispatch({
-              type: ADD_AMOUNT_ASYNC,
-              count: 4
-          })}
+          onClick={() => dispatch(addAmount(Number(incrementAmount) || 0))}
         >
           Add Amount
         </button>
         <button
           className={styles.asyncButton}
-          onClick={() => dispatch(addAmount(5))}
+          onClick={() => dispatch({
+              type: ADD_AMOUNT_ASYNC,
+              value: Number(incrementAmount) || 0
+          })}
         >
           Add Async
+        </button>
+        <button
+          className={styles.asyncButton}
+          onClick={() => dispatch({
+              type: INCREMENT_ASYNC
+          })}
+        >
+          Inc Async
         </button>
       </div>
     </div>

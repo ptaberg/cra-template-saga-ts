@@ -4,9 +4,9 @@ export interface SystemState {
 
 export type TAction = string;
 
-export interface IAction {
+export interface IActionCounter {
     type: TAction;
-    payload: any;
+    count: number;
 }
 
 export type TSaga = Iterable<unknown>;

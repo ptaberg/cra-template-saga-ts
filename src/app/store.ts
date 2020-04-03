@@ -3,7 +3,7 @@ import createSagaMiddleware from 'redux-saga';
 import { all } from 'redux-saga/effects';
 
 import counterReducer from '../features/counter/reducers';
-import { helloSaga, watchIncrementAsync } from '../features/counter/sagas';
+import { watchIncrementAsync, watchAddAsync } from '../features/counter/sagas';
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -13,8 +13,8 @@ const rootReducer = combineReducers({
 
 export default function* rootSaga() {
     yield all([
-        helloSaga(),
-        watchIncrementAsync()
+        watchIncrementAsync(),
+        watchAddAsync()
     ])
 }
 
